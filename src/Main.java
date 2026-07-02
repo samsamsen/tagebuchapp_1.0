@@ -1,23 +1,21 @@
 public class Main {
     //flag
-    public static boolean isRunning = true;
+    public static boolean isRunning = true; //in methode auswahl_menü die widerrum in menü stattfindet wird isRunning auf false gesetzt. wie hierher in main bringen ?
 
     public static void main(String[] args) {
         System.out.println("Willkommen in der Tagebuchapp");
         System.out.println("");
+
         while (isRunning) {
             menu.Menü(); //wird rekursiv aufgerufen ? *(siehe menu.java)
+            isRunning = false;
         }
     }
 }
 
-//methoden in extra klassen ausgelagert. PROBLEM: isRunning in Main geht nicht mehr auf False wenn
-//menü punkt 4 gedrückt wurde.
-//PROBLEM: dateiinhalt löschen geht zwar aber es werden die gewollten einträge nicht übernommen in die "neue" datei.
-//GESCHAFFT: methoden aus main in extra klassen für mehr übersicht.
-//todo: obige nun aus jetzt neu gemachten klassen ergebende probleme lösen: u.a wie kann man isRunning = false aus menu in das hauptprogramm bekommen.
-//bisherige versuche schwierig da return außerhalb der if kaskade nur akzeptiert wurde, also nicht nach eingabe = 4 somit kommt.
-//todo: rekursiven menü aufruf also menu.Menü() jetzt, rausnehmen ohne das programm probleme macht.
-//todo: fehlermeldungen mit ausgeben lassen statt nur "fehler aufgetreten"
-//switch case, noch mehr in methoden je einzelne aufgabe sowie variablen auf englisch -> bei nächstem mal umsetzen von anfang an.
-//ebenso großkleinschreibung nochmal ansehen.
+//16.53/-55 uhr ist guter stamp.
+//GESCHAFFT: isRunning geht jetzt wieder.
+//GESCHAFFT: dateiinhalt löschen geht zwar aber es werden die gewollten einträge nicht übernommen in die "neue" datei. -> geht 10.7 plötzlich nach mehrfachen testen . Gut.
+//GESCHAFFT/NICHT SO LÖSBAR: try catch abfangen bei menü wenn statt 1-4 , ein string eingegeben wird. Dazu glaub nötig filehandle.... usw als try with ressources zu machen. Sehr aufwendig neu zu schreiben.
+//GESCHAFFT/NICHT SO LÖSBAR: switch case kommt nicht klar mit:  switch (Files.exists(pfad)){ case 0: try..(weiterer code...) fehlermeldung: Selector type of 'boolean' is not supported at language level -> bei nächstem projekt jetzt direkt umsetzen switch case statt if.
+//OFFEN: rekursiver menü aufruf -> bei nächstem projekt direkt nicht rekursive methoden beachten.

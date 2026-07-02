@@ -13,7 +13,7 @@ public class menu {
     //flag
     public static boolean isRunning = true;
 
-    public static void Menü (){
+    public static void Menü() {
         System.out.println("Menü:");
         System.out.println("");
         System.out.println("1. Einträge anzeigen.");
@@ -30,28 +30,26 @@ public class menu {
         if (eingabe == 1) {
             System.out.println("Bisherige Einträge:");
             System.out.println("");
-            filehandling.dateilesen(pfad,pfadzwei);
+            filehandling.dateilesen(pfad, pfadzwei);
             Menü(); //rekursiver aufruf hier und in gesamter methode mehrfach *
-        }
-        else if (eingabe == 2) {
+        } else if (eingabe == 2) {
             System.out.println("Neuen Eintrag jetzt machen...");
             String eingabezwei = sc.nextLine();
             System.out.println(eingabezwei);
-            filehandling.dateischreiben(pfad,pfadzwei,eingabezwei);
+            filehandling.dateischreiben(pfad, pfadzwei, eingabezwei);
             Menü();
-        }
-        else if (eingabe == 3){
+        } else if (eingabe == 3) {
             System.out.println("Gib das Datum der zu löschenden Einträge an im Format JJJJ-MM-TT...");
             String eingabezwei = sc.nextLine();
-            if (Files.exists(pfad)){
-                filehandling.einskopierenundlöschen(pfad,pfadzwei,eingabezwei); //kopieren löschen methode part eins
-            }else if (Files.exists(pfadzwei)) {
+            if (Files.exists(pfad)) {
+                filehandling.einskopierenundlöschen(pfad, pfadzwei, eingabezwei); //kopieren löschen methode part eins
+            } else if (Files.exists(pfadzwei)) {
                 filehandling.zweikopierenundlöschen(pfad, pfadzwei, eingabezwei); //kopieren löschen methode part zwei
-            }else{
+            } else {
                 System.out.println("Eintrag nicht möglich zu löschen! (Keine der beiden Dateien aktuell vorhanden zum kopieren und löschen.)");
-            }Menü();
-        }
-        else if (eingabe == 4) {
+            }
+            Menü();
+        } else if (eingabe == 4) {
             System.out.println("Das Programm wurde beendet.");
         }
     }

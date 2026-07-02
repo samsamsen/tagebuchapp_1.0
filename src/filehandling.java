@@ -23,16 +23,20 @@ public class filehandling {
                 String line;
                 while ((line = br.readLine()) != null)
                     System.out.println(line);
-            } catch (IOException i) {
+            } catch (IOException e) {
                 System.out.println("Fehler ist aufgetreten");
+                System.out.println("");
+                System.out.println(e);
             }
         } else if (Files.exists(pfadzwei)) {
             try (var br = Files.newBufferedReader(pfadzwei)) {
                 String line;
                 while ((line = br.readLine()) != null)
                     System.out.println(line);
-            } catch (IOException i) {
+            } catch (IOException e) {
                 System.out.println("Fehler ist aufgetreten");
+                System.out.println("");
+                System.out.println(e);
             }
         }
     }
@@ -48,6 +52,8 @@ public class filehandling {
                 System.out.println("");
             } catch (IOException e) {
                 System.out.println("Fehler ist aufgetreten.");
+                System.out.println("");
+                System.out.println(e);
             }
         } else if (Files.exists(pfadzwei)) {
             try (var bw = Files.newBufferedWriter(pfadzwei, StandardOpenOption.APPEND, StandardOpenOption.CREATE)) {
@@ -59,6 +65,8 @@ public class filehandling {
                 System.out.println("");
             } catch (IOException e) {
                 System.out.println("Fehler ist aufgetreten.");
+                System.out.println("");
+                System.out.println(e);
             }
         } else { //wenn pfad eins und pfad zwei noch nicht existieren (aller erster programmstart z.b) pfad eins verwenden zum schreiben.
             try (var bw = Files.newBufferedWriter(pfad, StandardOpenOption.APPEND, StandardOpenOption.CREATE)) {
@@ -70,6 +78,8 @@ public class filehandling {
                 System.out.println("");
             } catch (IOException e) {
                 System.out.println("Fehler ist aufgetreten.");
+                System.out.println("");
+                System.out.println(e);
             }
         }
     }
@@ -79,6 +89,8 @@ public class filehandling {
             Files.deleteIfExists(dateizurlöschung);
         } catch (IOException e) {
             System.out.println("Beim löschen ist ein fehler aufgetreten.");
+            System.out.println("");
+            System.out.println(e);
         }
     }
 
@@ -93,10 +105,14 @@ public class filehandling {
                     bw.write(line + "\n");
                 } catch (IOException e) {
                     System.out.println("Ein buffered writer fehler bei kopieren von dateieins ist aufgetreten.");
+                    System.out.println("");
+                    System.out.println(e);
                 }
             }
         } catch (IOException e) {
             System.out.println("Beim kopieren im br part ist ein Fehler aufgetreten.");
+            System.out.println("");
+            System.out.println(e);
         }
         altedateilöschen(pfad);
         System.out.println("Der Eintrag wurde gelöscht.");
@@ -113,10 +129,14 @@ public class filehandling {
                     bw.write(line + "\n");
                 } catch (IOException e) {
                     System.out.println("Ein buffered writer fehler bei kopieren von dateieins ist aufgetreten.");
+                    System.out.println("");
+                    System.out.println(e);
                 }
             }
         } catch (IOException e) {
             System.out.println("Beim kopieren im br part ist ein Fehler aufgetreten.");
+            System.out.println("");
+            System.out.println(e);
         }
         altedateilöschen(pfadzwei);
         System.out.println("Der Eintrag wurde gelöscht.");
